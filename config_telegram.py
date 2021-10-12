@@ -32,7 +32,8 @@ def setup():
     #nas variáveis de ambiente
     updater.start_webhook(listen='0.0.0.0',
                           port=PORT,
-                          url_path=TELEGRAM_BOT_TOKEN)
+                          url_path=TELEGRAM_BOT_TOKEN,
+                          webhook_url='https://trabalho-chatbot-py.herokuapp.com/' + TELEGRAM_BOT_TOKEN)
 
     #configura webhook
     updater.bot.set_webhook(WEBHOOK_URL + '/' + TELEGRAM_BOT_TOKEN)
