@@ -17,7 +17,7 @@ dispatcher = updater.dispatcher
 
 def setup():
     #cria updater e dispatcher
-    updater = Updater(TOKEN, use_context=True)
+    updater = Updater(TELEGRAM_BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
     #define handlers
@@ -35,10 +35,10 @@ def setup():
     #nas variáveis de ambiente
     updater.start_webhook(listen='0.0.0.0',
                           port=PORT,
-                          url_path=TOKEN)
+                          url_path=TELEGRAM_BOT_TOKEN)
 
     #configura webhook
-    updater.bot.set_webhook(WEBHOOK_URL + '/' + TOKEN)
+    updater.bot.set_webhook(WEBHOOK_URL + '/' + TELEGRAM_BOT_TOKEN)
 
     #para a aplicacao nao terminar, eh necessario chamar o idle para que ela fique sempre rodando
     updater.idle()
