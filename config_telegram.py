@@ -46,6 +46,8 @@ def setup():
     return (updater, dispatcher)
 
 def start(update, context):
+    assistant.validate_session(update.effective_chat.id)
+    response_text = assistant.send_message(SessionManager.getInstance().getSession(update.effective_chat.id), '')
     context.bot.send_message(chat_id=update.effective_chat.id, text='Olá, esse é um bot de teste')
 
 def message(update, context):
@@ -56,4 +58,3 @@ def message(update, context):
     response_text = assistente.send_message(SessionManager.getInstance().getSession(update.effective_chat.id), update.message.text)
     context.bot.send_message(chat_id=update.effective_chat.id, text=response_text)
 
-setup()
