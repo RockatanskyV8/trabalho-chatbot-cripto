@@ -27,9 +27,6 @@ def setup():
     message_handler = MessageHandler(Filters.text, message)
     dispatcher.add_handler(message_handler)
 
-    voice_handler = MessageHandler(Filters.voice, receive_voice)
-    dispatcher.add_handler(voice_handler)
-
     #inicia webhook com a porta configurada pelo heroku
     #o heroku cuida automaticamente do proxy reverso, portanto a porta deve ser a fornecida pelo heroku
     #nas variáveis de ambiente
