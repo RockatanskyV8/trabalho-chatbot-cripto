@@ -1,24 +1,20 @@
 from ibm_watson import AssistantV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-import configparser
 from session_manager import SessionManager
 from pycoingecko import CoinGeckoAPI
 
 import logging
-
-logger = logging.getLogger('TelegramBot')
-
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-authenticator = IAMAuthenticator(config['WATSON_ASSISTANT']['IAM_TOKEN'])
-
-assistant_id = config['WATSON_ASSISTANT']['ASSISTANT_ID']
-
-URL = config['WATSON_ASSISTANT']['URL']
+import os
 
 cg = CoinGeckoAPI()
+
+logger       = logging.getLogger('TelegramBot')
+assistant_id = os.environ.get('ASSISTANT_ID')
+URL          = os.environ.get('WATSON_ASSISTANT_URL')
+IAM_TOKEN    = os.environ.get('WATSON_ASSISTANT_TOKEN')
+
+authenticator = IAMAuthenticator(IAM_TOKEN)
 
 assistant = AssistantV2(
     version='2020-02-05',
