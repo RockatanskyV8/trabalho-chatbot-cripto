@@ -56,10 +56,4 @@ def message(update, context):
     response_text = assistente.send_message(SessionManager.getInstance().getSession(update.effective_chat.id), update.message.text)
     context.bot.send_message(chat_id=update.effective_chat.id, text=response_text)
 
-start_handler = CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
-
-message_handler = MessageHandler(Filters.text, message)
-dispatcher.add_handler(message_handler)
-
-updater.start_polling()
+setup()
