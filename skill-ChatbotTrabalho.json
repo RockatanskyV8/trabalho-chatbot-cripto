@@ -217,7 +217,7 @@
           {
             "values": [
               {
-                "text": "Qual delas?"
+                "text": "Qual delas?  Bitcoin, Monero, Zcash, Cardano ou Ethereum?"
               }
             ],
             "response_type": "text",
@@ -309,7 +309,7 @@
       },
       "conditions": "true",
       "dialog_node": "response_3_1633812265379",
-      "previous_sibling": "response_3_1633815617772"
+      "previous_sibling": "response_3_1634268783512"
     },
     {
       "type": "response_condition",
@@ -334,6 +334,26 @@
       "conditions": "$cancelar",
       "dialog_node": "response_3_1633815617772",
       "previous_sibling": "handler_4_1633815481955"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Não tenho essa na minha lista"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1633810536504",
+      "conditions": "false",
+      "dialog_node": "response_3_1634268783512",
+      "previous_sibling": "response_3_1633815617772"
     },
     {
       "type": "response_condition",
