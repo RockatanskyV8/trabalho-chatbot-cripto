@@ -34,6 +34,15 @@
       "intent": "saudacao",
       "examples": [
         {
+          "text": "boa noite"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
           "text": "oi"
         },
         {
@@ -50,9 +59,12 @@
         },
         {
           "text": "Quero saber sobre uma crypto"
+        },
+        {
+          "text": "Quero ver um preço"
         }
       ],
-      "description": ""
+      "description": "quero ver um preço"
     }
   ],
   "entities": [
@@ -155,13 +167,10 @@
           {
             "values": [
               {
-                "text": "Eu não entendi. Você pode tentar reformular a frase."
+                "text": "Funciona dessa forma, você me diz se quer saber um preço e eu te mostro as opções"
               },
               {
-                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
-              },
-              {
-                "text": "Eu não entendi o sentido."
+                "text": "Primeiro você me diz se quer saber um preço, então eu te dou as opções"
               }
             ],
             "response_type": "text",
@@ -274,6 +283,7 @@
         }
       },
       "conditions": "#saudacao",
+      "digress_in": "does_not_return",
       "dialog_node": "node_7_1633802050778",
       "previous_sibling": "Bem-vindo"
     },
@@ -391,7 +401,7 @@
         ]
       },
       "parent": "node_7_1633802050778",
-      "conditions": "now().after(\"18:01\") && now().before(\"06:00\")",
+      "conditions": "now().after(\"18:01\") && now().before(\"05:59\")",
       "dialog_node": "response_9_1633802639808",
       "previous_sibling": "response_7_1633802602923"
     },
